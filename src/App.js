@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import './App.css';
-import Recipe from './components/Recipe';
+import Recipe from './Recipe';
 
 
 function App() {
@@ -15,10 +15,13 @@ function App() {
     getRecipes();
   }, [query]);
   
+
+  const [healthLabels, sethealthLabels] = useState("vegan")
+
   //fetch dataBase
   const getRecipes = async () => {
     var response = await fetch( 
-      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=6&calories=591-722&health=alcohol-free`
+      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=6&calories=0-2000&health=${healthLabels}`
       )
     const data = await response.json();
     setRecipes(data.hits);
@@ -49,6 +52,32 @@ function App() {
         <button className="search-button" type="submit">
           Search
         </button>
+
+      <select classNmae="app-healthLabels">
+        <option onClick={() => sethealthLabels("vegan")}>
+            Vegan
+        </option>
+        <option onClick={() => sethealthLabels("dairy-free")}>
+          dairy-free
+        </option>
+        <option onClick={() => sethealthLabels("gluten-free")}>
+          gluten-free
+        </option>
+        <option onClick={() => sethealthLabels("wheat-free")}>
+          wheat-free
+        </option>
+        <option onClick={() => sethealthLabels("vegetarian")}>
+          vegetarian
+        </option>
+        <option onClick={() => sethealthLabels("paleo")}>
+            paleo
+        </option>
+        <option onClick={() => sethealthLabels("alcohol-free")}>
+          alcohol-free
+        </option>
+
+
+      </select>
       </form>
       <div className="recipes">
       {recipes.map(recipe=>(
