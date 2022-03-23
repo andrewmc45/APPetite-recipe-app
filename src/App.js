@@ -1,7 +1,9 @@
 import React,{useEffect, useState} from 'react';
 import './App.css';
 import Recipe from './Recipe';
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar"
+import Home from "./pages/Home"
 
 function App() {
   
@@ -41,7 +43,14 @@ function App() {
   }
 
   return (
+    
     <div className="App">
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path='/' exact element={Home} />
+      </Routes>
+    </Router>
       <form 
         onSubmit={getSearch}
         className="search-form">
