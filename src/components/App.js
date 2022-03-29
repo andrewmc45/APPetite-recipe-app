@@ -1,9 +1,12 @@
 import React,{useEffect, useState} from 'react';
 import './App.css';
-import Recipe from './Recipe';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar"
+import Recipe from './pages/Home';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import NavBar from "./NavBar/NavBar"
 import Home from "./pages/Home"
+import Favorites from './pages/Favorites';
+import UserProfile from './pages/UserProfile';
+import Settings from './pages/Settings';
 
 function App() {
   
@@ -48,7 +51,10 @@ function App() {
     <Router>
       <NavBar />
       <Routes>
-        <Route path='/' exact element={Home} />
+        <Route exact path='/' element={Home} />
+        <Route exact path='/favorites' element={<Favorites/>}/>
+        <Route exact path='/userProfile' element={<UserProfile/>}/>
+        <Route exact path='/settings' element={<Settings/>}/>
       </Routes>
     </Router>
       <form 

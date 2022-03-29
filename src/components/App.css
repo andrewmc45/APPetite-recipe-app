@@ -1,5 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", "sans-serif";
+}
+
+.page-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  position: relative;
+  z-index: 2;
+}
+
+.page-heading h1 {
+  font-size: 5rem;
+  color: #fff;
+  font-weight: 300;
+  background-color: rgba(0,0,0,0.5);
+  padding: 0px 20px;
+  border-radius: 2px;
+}
+
+
 .App{
   min-height: 100vh;
+  width: 100%;
   /* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); */
   background-color: #9ADCFF;
 }
