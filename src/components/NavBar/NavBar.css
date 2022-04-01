@@ -1,11 +1,12 @@
 nav {
-  background: rgba(0, 0, 0, 0.9);
+  background: #545863;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   color: #fff;
   position: relative;
   z-index: 99;
+  
 }
 
 .fas {
@@ -29,7 +30,7 @@ nav {
 .logo {
   font-weight: 600;
   font-size: 25px;
-  color: tomato;
+  color: #00E8FC;
 }
 
 .logo font {
@@ -43,8 +44,6 @@ nav {
   align-items: center;
 }
 
-
-
 .menu-list li a {
   text-decoration: none;
   color: #fff;
@@ -55,7 +54,7 @@ nav {
 
 .menu-list li a:hover,
 .menu-list li a.active {
-  background-color: #fff;
+  background-color: #00E8FC;
   border-radius: 2px;
   color: #000;
   transition: all 0.5s ease-in-out;

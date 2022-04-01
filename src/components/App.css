@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", "sans-serif";
+  font-family: 'Sora', sans-serif;
 }
 
 .page-heading {
@@ -28,7 +28,7 @@
   min-height: 100vh;
   width: 100%;
   /* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); */
-  background-color: #9ADCFF;
+  background-color: #F2F2F2;
 }
 
 .search-form{
@@ -36,21 +36,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
-
 
 .search-bar{
   width:50%;
   border:none;
-  padding:10px;
+  padding:15px;
+  border-radius: 50px;
 }
 
-.search-button{
+/* .search-button{
   background-color: lightcyan;
   border: none;
   padding:10px 20px;
   color:black;
-}
+} */
 
 .recipes{
   display:flex;
@@ -59,8 +60,8 @@
 }
 
 .app-healthLabels{
-  background-color: lightcyan;
-  border: none;
-  padding:10px 20px;
-  color:black;
+  border:none;
+  padding:15px;
+  border-radius: 50px;
+  margin: 10px;
 }

@@ -1,19 +1,19 @@
 import React from "react";
 import style from './Home.module.css'
 
-const Recipe = ({title,image,ingredients}) => {
+const Home = ({title,image,ingredients}) => {
     return(
         <div className={style.recipe}>
             <h1 >{title}</h1>
             <img className={style.image} src={image} alt=""></img>
-            <ol>
+            {/* <ol>
                 {ingredients.map(ingredient=>(
                     <li>{ingredient.text}</li>
                 ))}
-            </ol>
+            </ol> */}
         </div>
     )
 };
 
-export default Recipe;
+export default Home;
 
