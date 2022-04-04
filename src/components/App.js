@@ -6,6 +6,7 @@ import NavBar from "./NavBar/NavBar";
 import Favorites from "./pages/Favorites";
 import UserProfile from "./pages/UserProfile";
 import Settings from "./pages/Settings";
+import axios from 'axios'
 
 function App() {
   const APP_ID = "faeba007";
@@ -18,7 +19,7 @@ function App() {
   }, [query]);
 
   const [healthLabels, sethealthLabels] = useState("vegan");
-
+  const [numberRecipe, setNumberRecipe] = useState(6);
   //fetch dataBase
   const getRecipes = async () => {
     var response = await fetch(
@@ -38,8 +39,23 @@ function App() {
     e.preventDefault();
     setQuery(search);
     setSearch("");
+    numberRecipe = 6;
   };
 
+
+
+
+ const loadMoreData = async() =>{
+  console.log('load more data');
+  setNumberRecipe (numberRecipe + 6);
+   var response = await fetch(
+    `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=${numberRecipe}&to=${numberRecipe + 6 }&calories=0-2000&health=${healthLabels}`
+  );
+  const data = await response.json();
+  setRecipes(data.hits);
+  console.log(data.hits);
+
+ }
   return (
     <div className="App">
       <Router>
@@ -94,6 +110,7 @@ function App() {
           />
         ))}
       </div>
+      <button id='button' onClick={loadMoreData} >Not what are you looking for?</button>
     </div>
   );
 }
