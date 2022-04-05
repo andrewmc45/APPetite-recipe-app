@@ -7,6 +7,8 @@ import {
 } from "firebase/auth";
 import "./App.css";
 import { auth } from "./firebase-config";
+import './script.js'
+import {Helmet} from "react-helmet";
 
 function App() {
   const [registerEmail, setRegisterEmail] = useState("");
@@ -50,48 +52,56 @@ function App() {
     await signOut(auth);
   };
 
+ 
   return (
     <div className="App">
-      <div>
-        <h3> Register User </h3>
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-            setRegisterEmail(event.target.value);
-          }}
+    <Helmet>{`
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='./script.js>
+    </script>
+    `}
+    </Helmet>
+<div class="login-page">
+  <div class="form">
+    <form class="register-form">
+      <input 
+        type="text" 
+        placeholder="Email..."
+        onChange={(event) => {
+          setRegisterEmail(event.target.value);
+        }}
         />
-        <input
-          placeholder="Password..."
-          onChange={(event) => {
-            setRegisterPassword(event.target.value);
-          }}
-        />
-
-        <button onClick={register}> Create User</button>
-      </div>
-
-      <div>
-        <h3> Login </h3>
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-            setLoginEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Password..."
-          onChange={(event) => {
-            setLoginPassword(event.target.value);
-          }}
-        />
-
-        <button onClick={login}> Login</button>
-      </div>
-
+      <input 
+        type="password" 
+        placeholder="password"
+        onChange={(event) => {
+          setRegisterPassword(event.target.value);
+        }}/>
+      <button onclick={register}>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form">
+      <input 
+        type="text" 
+        placeholder="username"
+        onChange={(event) => {
+          setLoginEmail(event.target.value);
+        }}/>
+      <input 
+        type="password" 
+        placeholder="password"
+        onChange={(event) => {
+          setLoginPassword(event.target.value);
+        }}/>
+      <button onClick={login}>login</button>
+      <p class="message">Not registered? <a href="#">Create an account</a></p>
       <h4> User Logged In: </h4>
       {user?.email}
 
       <button onClick={logout}> Sign Out </button>
+    </form>
+  </div>
+</div>
     </div>
   );
 }
