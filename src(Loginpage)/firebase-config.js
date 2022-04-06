@@ -2,13 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAXFme_oTPlrFmWIm707ac6Z2qawoTvf2k",
-  authDomain: "authentication-tutorial-ec556.firebaseapp.com",
-  projectId: "authentication-tutorial-ec556",
-  storageBucket: "authentication-tutorial-ec556.appspot.com",
-  messagingSenderId: "945663559539",
-  appId: "1:945663559539:web:51b9786fd75d399bf86706",
-  measurementId: "G-22FP5PHT1F",
+  apiKey:"AIzaSyCRULSCsLZnHBgXgT2fcAB05caQ00mvihE",
+  authDomain:"recipe-app-49dc4.firebaseapp.com",
+  projectId:"recipe-app-49dc4",
+  storageBucket:"recipe-app-49dc4.appspot.com",
+  messagingSenderId:"565440754911",
+  appId:"1:565440754911:web:0f6765da684b9d61f1656a",
 };
 
 const app = initializeApp(firebaseConfig);
