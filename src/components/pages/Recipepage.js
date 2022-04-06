@@ -6,15 +6,17 @@ import { useLocation,useParams} from "react-router-dom";
 
 const Recipepage =(props)=>{
     
+    let { id } = useParams();
     useEffect(() => {
         window.scrollTo(0, 0)
-      }, [])
+      }, [id])
 
-    let { id } = useParams();
+  
     let location = useLocation();
     let recipedata=location.state.content;
     console.log(recipedata);
-
+    const recipeid = recipedata.uri.substring(51);
+    
     
     return(
         <><div style={{display:"flex",
