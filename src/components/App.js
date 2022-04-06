@@ -7,7 +7,7 @@ import Favorites from "./pages/Favorites";
 import UserProfile from "./pages/UserProfile";
 import Settings from "./pages/Settings";
 import Recipepage from "./pages/Recipepage";
-import axios from 'axios'
+
 
 function App() {
   const APP_ID = "faeba007";
