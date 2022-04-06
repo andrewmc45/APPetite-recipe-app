@@ -61,9 +61,9 @@ function App() {
     </script>
     `}
     </Helmet>
-<div class="login-page">
-  <div class="form">
-    <form class="register-form">
+<div className="login-page">
+  <div className="form">
+    <form className="register-form">
       <input 
         type="text" 
         placeholder="Email..."
@@ -77,10 +77,10 @@ function App() {
         onChange={(event) => {
           setRegisterPassword(event.target.value);
         }}/>
-      <button onclick={register}>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
+      <button onClick={register}>create</button>
+      <p className="message">Already registered? <a href="#">Sign In</a></p>
     </form>
-    <form class="login-form">
+    <form className="login-form">
       <input 
         type="text" 
         placeholder="username"
@@ -94,7 +94,7 @@ function App() {
           setLoginPassword(event.target.value);
         }}/>
       <button onClick={login}>login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+      <p className="message">Not registered? <a href="#">Create an account</a></p>
       <h4> User Logged In: </h4>
       {user?.email}
 
