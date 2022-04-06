@@ -40,7 +40,7 @@ function App() {
     e.preventDefault();
     setQuery(search);
     setSearch("");
-    numberRecipe = 6;
+    setNumberRecipe(6);
   };
 
 
@@ -120,7 +120,9 @@ function App() {
         ))}
         
       </div>
-      <button id='button' onClick={loadMoreData} >Not what are you looking for?</button>
+      <div className="centerbtn">
+        <button id='button' onClick={loadMoreData} >Not what are you looking for?</button>
+      </div>
     </div>
   );
 }

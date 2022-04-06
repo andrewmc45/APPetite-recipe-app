@@ -68,7 +68,7 @@
 
 /* From cssbuttons.io by @alexroumi */
 button {
- left:40%;
+
  padding: 15px 25px;
  border: unset;
  border-radius: 15px;
@@ -105,4 +105,8 @@ button:hover {
 
 button:hover::before {
  width: 100%;
+}
+
+.centerbtn{
+text-align:center;
 }
