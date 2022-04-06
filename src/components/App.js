@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./pages/Home";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {Link, Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar/NavBar";
 import Favorites from "./pages/Favorites";
 import UserProfile from "./pages/UserProfile";
 import Settings from "./pages/Settings";
+import Recipepage from "./pages/Recipepage";
 import axios from 'axios'
 
 function App() {
@@ -18,12 +19,12 @@ function App() {
     getRecipes();
   }, [query]);
 
-  const [healthLabels, sethealthLabels] = useState("vegan");
+  const [healthLabels, sethealthLabels] = useState("");
   const [numberRecipe, setNumberRecipe] = useState(6);
   //fetch dataBase
   const getRecipes = async () => {
     var response = await fetch(
-      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=6&calories=0-2000&health=${healthLabels}`
+      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=6&calories=0-2000${healthLabels}`
     );
     const data = await response.json();
     setRecipes(data.hits);
@@ -49,7 +50,7 @@ function App() {
   console.log('load more data');
   setNumberRecipe (numberRecipe + 6);
    var response = await fetch(
-    `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=${numberRecipe}&to=${numberRecipe + 6 }&calories=0-2000&health=${healthLabels}`
+    `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=${numberRecipe}&to=${numberRecipe + 6 }&calories=0-2000${healthLabels}`
   );
   const data = await response.json();
   setRecipes(data.hits);
@@ -58,15 +59,19 @@ function App() {
  }
   return (
     <div className="App">
-      <Router>
+      
+      
         <NavBar />
+
         <Routes>
           <Route exact path="/" element={Home} />
           <Route exact path="/favorites" element={<Favorites />} />
           <Route exact path="/userProfile" element={<UserProfile />} />
           <Route exact path="/settings" element={<Settings />} />
+          
+          <Route  exact path="/recipepage/:id"  element={<Recipepage/>} />
         </Routes>
-      </Router>
+      
 
       <form onSubmit={getSearch} className="search-form">
         <input
@@ -81,21 +86,22 @@ function App() {
         </button> */}
 
         <select className="app-healthLabels">
-          <option onClick={() => sethealthLabels("vegan")}>Vegan</option>
-          <option onClick={() => sethealthLabels("dairy-free")}>
+          <option onClick={() => sethealthLabels("")}>All</option>
+          <option onClick={() => sethealthLabels("&health=vegan")}>Vegan</option>
+          <option onClick={() => sethealthLabels("&health=dairy-free")}>
             dairy-free
           </option>
-          <option onClick={() => sethealthLabels("gluten-free")}>
+          <option onClick={() => sethealthLabels("&health=gluten-free")}>
             gluten-free
           </option>
-          <option onClick={() => sethealthLabels("wheat-free")}>
+          <option onClick={() => sethealthLabels("&health=wheat-free")}>
             wheat-free
           </option>
-          <option onClick={() => sethealthLabels("vegetarian")}>
+          <option onClick={() => sethealthLabels("&health=vegetarian")}>
             vegetarian
           </option>
-          <option onClick={() => sethealthLabels("paleo")}>paleo</option>
-          <option onClick={() => sethealthLabels("alcohol-free")}>
+          <option onClick={() => sethealthLabels("&health=paleo")}>paleo</option>
+          <option onClick={() => sethealthLabels("&health=alcohol-free")}>
             alcohol-free
           </option>
         </select>
@@ -107,8 +113,12 @@ function App() {
             title={recipe.recipe.label}
             image={recipe.recipe.image}
             ingredients={recipe.recipe.ingredients}
+            full={recipe.recipe}
           />
+        
+          
         ))}
+        
       </div>
       <button id='button' onClick={loadMoreData} >Not what are you looking for?</button>
     </div>
