@@ -33,7 +33,7 @@ function renderLoggedIn() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/favorites" element={<Favorites />} />
           <Route exact path="/userProfile" element={<UserProfile />} />
-          <Route exact path="/settings" element={<Settings />} />
+          <Route exact path="/settings/*" element={<Settings />} />
           <Route exact path="/recipepage/:id" element={<Recipepage />} />
         </Routes>
       </Router>

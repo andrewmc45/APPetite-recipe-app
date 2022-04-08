@@ -110,3 +110,12 @@ button:hover::before {
 .centerbtn{
 text-align:center;
 }
+
+.privacy>h1, .security> h1, .help > h1, .preferences > h1{
+  display:flex;
+  color:black;
+  height:90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
