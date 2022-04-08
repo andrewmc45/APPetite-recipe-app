@@ -13,6 +13,10 @@ const Recipepage = (props) => {
   console.log(recipedata);
   const recipeid = recipedata.uri.substring(51);
 
+  const handleClick=()=>{
+    console.log(recipeid);
+
+}
   return (
     <>
       <div
@@ -47,8 +51,10 @@ const Recipepage = (props) => {
           <div>{ing}</div>
         ))}
         <h3 style={{ paddingTop: "10px" }}>Preperation</h3>
-        <a href={recipedata.url}>{recipedata.url}</a>
+        <a href={recipedata.url}  target="_blank">{recipedata.url}</a>
       </div>
+      <button onClick={handleClick}>Save the Recipe to Favorites</button>
+
     </>
   );
 };
