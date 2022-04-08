@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import Home from "./pages/Home";
-import {Link, Routes, Route } from "react-router-dom";
-import NavBar from "./NavBar/NavBar";
-import Favorites from "./pages/Favorites";
-import UserProfile from "./pages/UserProfile";
-import Settings from "./pages/Settings";
-import Recipepage from "./pages/Recipepage";
+import style from './Home.module.css'
+import RecipeCard from "../../components/RecipeCard/RecipeCard";
 
-
-function App() {
+function Home() {
   const APP_ID = "faeba007";
   const APP_KEY = "7779fa44d40a797ab15ab9baab3a72f0";
   const [recipes, setRecipes] = useState([]);
@@ -43,35 +36,30 @@ function App() {
     setNumberRecipe(6);
   };
 
-
-
-
- const loadMoreData = async() =>{
-  console.log('load more data');
-  setNumberRecipe (numberRecipe + 6);
-   var response = await fetch(
-    `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=${numberRecipe}&to=${numberRecipe + 6 }&calories=0-2000${healthLabels}`
-  );
-  const data = await response.json();
-  setRecipes(data.hits);
-  console.log(data.hits);
-
- }
+  const loadMoreData = async () => {
+    console.log("load more data");
+    setNumberRecipe(numberRecipe + 6);
+    var response = await fetch(
+      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=${numberRecipe}&to=${
+        numberRecipe + 6
+      }&calories=0-2000${healthLabels}`
+    );
+    const data = await response.json();
+    setRecipes(data.hits);
+    console.log(data.hits);
+  };
   return (
     <div className="App">
-      
-      
-        <NavBar />
-
+      {/* <NavBar />
+  
         <Routes>
           <Route exact path="/" element={Home} />
           <Route exact path="/favorites" element={<Favorites />} />
           <Route exact path="/userProfile" element={<UserProfile />} />
           <Route exact path="/settings" element={<Settings />} />
-          
-          <Route  exact path="/recipepage/:id"  element={<Recipepage/>} />
-        </Routes>
-      
+  
+          <Route exact path="/recipepage/:id" element={<Recipepage />} />
+        </Routes> */}
 
       <form onSubmit={getSearch} className="search-form">
         <input
@@ -81,13 +69,12 @@ function App() {
           value={search}
           onChange={updateSearch}
         />
-        {/* <button className="search-button" type="submit">
-        
-        </button> */}
 
         <select className="app-healthLabels">
           <option onClick={() => sethealthLabels("")}>All</option>
-          <option onClick={() => sethealthLabels("&health=vegan")}>Vegan</option>
+          <option onClick={() => sethealthLabels("&health=vegan")}>
+            Vegan
+          </option>
           <option onClick={() => sethealthLabels("&health=dairy-free")}>
             dairy-free
           </option>
@@ -100,7 +87,9 @@ function App() {
           <option onClick={() => sethealthLabels("&health=vegetarian")}>
             vegetarian
           </option>
-          <option onClick={() => sethealthLabels("&health=paleo")}>paleo</option>
+          <option onClick={() => sethealthLabels("&health=paleo")}>
+            paleo
+          </option>
           <option onClick={() => sethealthLabels("&health=alcohol-free")}>
             alcohol-free
           </option>
@@ -109,22 +98,20 @@ function App() {
 
       <div className="recipes">
         {recipes.map((recipe) => (
-          <Home
+          <RecipeCard
             title={recipe.recipe.label}
             image={recipe.recipe.image}
             ingredients={recipe.recipe.ingredients}
             full={recipe.recipe}
           />
-        
-          
         ))}
-        
       </div>
       <div className="centerbtn">
-        <button id='button' onClick={loadMoreData} >Not what are you looking for?</button>
+        <button id="button" onClick={loadMoreData}>
+          Not what are you looking for?
+        </button>
       </div>
     </div>
   );
 }
-
-export default App;
+export default Home;
