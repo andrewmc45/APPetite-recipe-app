@@ -1,0 +1,42 @@
+h2 {
+  font-size: 30px !important;
+  color: #f96e46 !important;
+}
+
+h3 {
+  color: #f96e46 !important;
+}
+
+.recipe-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 20px;
+  font-size: 20px;
+  background-color: #f2f2f2;
+  color: #383838;
+}
+
+.image-container {
+  padding-bottom: 25px;
+  padding-top: 10px;
+}
+
+.table-container {
+  font-size: 20px;
+}
+
+.first-table {
+  padding-right: 50px;
+}
+
+.ingredient-container {
+    padding-top: 25px;
+}
+
+.preperation-container {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}

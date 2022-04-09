@@ -37,12 +37,11 @@
 }
 
 .search-bar {
+  margin-top: 25px;
   width: 50%;
   border: none;
-  margin-top: 20px;
   padding: 15px;
   border-radius: 50px;
-  border: 1px solid black;
 }
 
 .recipes {
@@ -55,8 +54,37 @@
   border: none;
   padding: 15px;
   border-radius: 50px;
+  margin-top: 25px;
   margin-left: 10px;
-  margin-top: 20px;
-  border: 1px solid black;
 }
 
+button{
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #fff;
+  z-index: 1;
+  background: #FFB400;
+  position: relative;
+  font-weight: bolder !important;
+  font-size: 17px;
+  overflow: hidden;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  margin-bottom: 10px !important;
+  margin-top: 10px !important;
+}
+
+
+
+.privacy > h1,
+.security > h1,
+.help > h1,
+.preferences > h1 {
+  display: flex;
+  color: black;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}

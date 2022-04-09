@@ -1,16 +1,15 @@
 nav {
-  background: #545863;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  color: #fff;
-  position: relative;
-  z-index: 5099;
-  
+  background: #545863 !important;
+  padding: 20px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  color: #fff !important;
+  position: relative !important;
+  z-index: 99 !important;
 }
 
 .fas {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .menu-icon {
@@ -30,33 +29,34 @@ nav {
 .logo {
   font-weight: 600;
   font-size: 25px;
-  color: #00E8FC;
+  color: #00e8fc;
 }
 
 .logo font {
-  color: #fff;
+  color: #C867FF;
 }
 
 .menu-list {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  list-style-type: none !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
 .menu-list li a {
   text-decoration: none;
-  color: #fff;
+  color: #C867FF;
   font-weight: 300;
   padding: 5px 10px;
   margin-left: 20px;
+  font-weight: bolder !important;
 }
 
 .menu-list li a:hover,
 .menu-list li a.active {
-  background-color: #00E8FC;
+  background-color: #00e8fc;
   border-radius: 2px;
-  color: #000;
+  color: #545863;
   transition: all 0.5s ease-in-out;
 }
 
