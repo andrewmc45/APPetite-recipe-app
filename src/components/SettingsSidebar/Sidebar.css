@@ -13,7 +13,7 @@ body{
     position:fixed;
     top:0;
     transition: 850ms;
-    z-index: 4000;
+    z-index: 50;
 }
 
 .row {
