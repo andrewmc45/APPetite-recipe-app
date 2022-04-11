@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from './Home.module.css'
+import './Home.css'
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 
 function Home() {
@@ -50,17 +50,7 @@ function Home() {
   };
   return (
     <div className="App">
-      {/* <NavBar />
-  
-        <Routes>
-          <Route exact path="/" element={Home} />
-          <Route exact path="/favorites" element={<Favorites />} />
-          <Route exact path="/userProfile" element={<UserProfile />} />
-          <Route exact path="/settings" element={<Settings />} />
-  
-          <Route exact path="/recipepage/:id" element={<Recipepage />} />
-        </Routes> */}
-
+      
       <form onSubmit={getSearch} className="search-form">
         <input
           className="search-bar"
@@ -76,22 +66,22 @@ function Home() {
             Vegan
           </option>
           <option onClick={() => sethealthLabels("&health=dairy-free")}>
-            dairy-free
+            Dairy-Free
           </option>
           <option onClick={() => sethealthLabels("&health=gluten-free")}>
-            gluten-free
+            Gluten-Free
           </option>
           <option onClick={() => sethealthLabels("&health=wheat-free")}>
-            wheat-free
+            Wheat-Free
           </option>
           <option onClick={() => sethealthLabels("&health=vegetarian")}>
-            vegetarian
+            Vegetarian
           </option>
           <option onClick={() => sethealthLabels("&health=paleo")}>
-            paleo
+            Paleo
           </option>
           <option onClick={() => sethealthLabels("&health=alcohol-free")}>
-            alcohol-free
+            Alcohol-Free
           </option>
         </select>
       </form>
@@ -106,9 +96,9 @@ function Home() {
           />
         ))}
       </div>
-      <div className="centerbtn">
-        <button id="button" onClick={loadMoreData}>
-          Not what are you looking for?
+      <div>
+        <button onClick={loadMoreData}>
+          Click To See More!
         </button>
       </div>
     </div>

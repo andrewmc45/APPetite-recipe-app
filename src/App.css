@@ -1,121 +1,39 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Sora', sans-serif;
+.App {
+  text-align: center;
+  font-family: "Sora", sans-serif !important;
 }
 
-.page-heading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-  position: relative;
-  z-index: 2;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.page-heading h1 {
-  font-size: 5rem;
-  color: #fff;
-  font-weight: 300;
-  background-color: rgba(0,0,0,0.5);
-  padding: 0px 20px;
-  border-radius: 2px;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-
-.App{
+.App-header {
+  background-color: #282c34;
   min-height: 100vh;
-  width: 100%;
-  /* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); */
-  background-color: #F2F2F2;
-}
-
-.search-form{
-  min-height: 10vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-.search-bar{
-  width:50%;
-  border:none;
-  padding:15px;
-  border-radius: 50px;
-}
-
-/* .search-button{
-  background-color: lightcyan;
-  border: none;
-  padding:10px 20px;
-  color:black;
-} */
-
-.recipes{
-  display:flex;
-  justify-content:space-around;
-  flex-wrap:wrap;
-}
-
-.app-healthLabels{
-  border:none;
-  padding:15px;
-  border-radius: 50px;
-  margin: 10px;
-}
-
-/* From cssbuttons.io by @alexroumi */
-button {
-
- padding: 15px 25px;
- border: unset;
- border-radius: 15px;
- color: #212121;
- z-index: 1;
- background: #e8e8e8;
- position: relative;
- font-weight: 1000;
- font-size: 17px;
- -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
- box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
- transition: all 250ms;
- overflow: hidden;
-}
-
-button::before {
- content: "";
- position: absolute;
- top: 0;
- left: 0;
- height: 100%;
- width: 0;
- border-radius: 15px;
- background-color: #212121;
- z-index: -1;
- -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
- box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
- transition: all 250ms
-}
-
-button:hover {
- color: #e8e8e8;
-}
-
-button:hover::before {
- width: 100%;
-}
-
-.centerbtn{
-text-align:center;
-}
-
-.privacy>h1, .security> h1, .help > h1, .preferences > h1{
-  display:flex;
-  color:black;
-  height:90vh;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

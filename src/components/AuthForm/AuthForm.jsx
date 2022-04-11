@@ -7,7 +7,7 @@ import NavBar from "../NavBar/NavBar";
 import Favorites from "../../pages/Favorites/Favorites";
 import UserProfile from "../../pages/UserProfile/UserProfile";
 import Settings from "../../pages/Settings/Settings";
-import Recipepage from "../../pages/Home/Recipepage"
+import RecipePage from "../../pages/Home/RecipePage";
 
 import { auth } from "../../firebase";
 
@@ -34,12 +34,11 @@ function renderLoggedIn() {
           <Route exact path="/favorites" element={<Favorites />} />
           <Route exact path="/userProfile" element={<UserProfile />} />
           <Route exact path="/settings/*" element={<Settings />} />
-          <Route exact path="/recipepage/:id" element={<Recipepage />} />
+          <Route exact path="/recipepage/:id" element={<RecipePage />} />
         </Routes>
       </Router>
-      <h1>You are logged in!</h1>
       <div>
-        <Button onClick={() => auth.signOut()} color="yellow">
+        <Button className="logout-button" onClick={() => auth.signOut()} color="black">
           Log out
         </Button>
       </div>
@@ -61,100 +60,105 @@ function AuthForm() {
 
   return (
     <div>
-      {/* <Card>
-        <Card.Content> */}
       {user ? (
         renderLoggedIn()
       ) : (
-        <Fragment>
-          <Card.Header className="auth-form-header">Auth Form</Card.Header>
-          <Menu compact secondary>
-            <Menu.Item
-              name="Login"
-              onClick={() => setIsLogin(true)}
-              active={isLogin}
-            ></Menu.Item>
-            <Menu.Item
-              name="Sign up"
-              onClick={() => setIsLogin(false)}
-              active={!isLogin}
-            ></Menu.Item>
-          </Menu>
-          {isLogin ? (
+        <div className="auth-form-wrapper">
+        <Card className="auth-form-card">
+          <Card.Content>
             <Fragment>
-              <Form>
-                <Form.Field className="auth-form-fields">
-                  <label className="form-labels">Email</label>
-                  <input
-                    placeholder="Email Address"
-                    name="loginEmail"
-                    type="email"
-                    value={loginEmail || ""}
-                    onChange={(e) => setLoginEmail(e.target.value)}
-                  ></input>
-                </Form.Field>
-                <Form.Field className="auth-form-fields">
-                  <label className="form-labels">Password</label>
-                  <input
-                    placeholder="Password"
-                    name="loginPassword"
-                    type="password"
-                    value={loginPassword || ""}
-                    onChange={(e) => setLoginPassword(e.target.value)}
-                  ></input>
-                </Form.Field>
-                <Button
-                  onClick={() =>
-                    authenticateUser(loginEmail, loginPassword, true)
-                  }
-                  className="auth-form-buttons"
-                  color="green"
-                >
-                  Login
-                </Button>
-              </Form>
-              <div className="google-login"></div>
+              <Card.Header className="auth-form-header">
+                APP<font>etite</font>
+              </Card.Header>
+              <Card.Header className="paragraph-line">
+                Browse 300+ unique recipes of different cuisines.
+              </Card.Header>
+              <Menu compact secondary>
+                <Menu.Item
+                  name="Login"
+                  onClick={() => setIsLogin(true)}
+                  active={isLogin}
+                ></Menu.Item>
+                <Menu.Item
+                  name="Sign up"
+                  onClick={() => setIsLogin(false)}
+                  active={!isLogin}
+                ></Menu.Item>
+              </Menu>
+              {isLogin ? (
+                <Fragment>
+                  <Form>
+                    <Form.Field className="auth-form-fields">
+                      <label className="form-labels">Email</label>
+                      <input
+                        placeholder="Email Address"
+                        name="loginEmail"
+                        type="email"
+                        value={loginEmail || ""}
+                        onChange={(e) => setLoginEmail(e.target.value)}
+                      ></input>
+                    </Form.Field>
+                    <Form.Field className="auth-form-fields">
+                      <label className="form-labels">Password</label>
+                      <input
+                        placeholder="Password"
+                        name="loginPassword"
+                        type="password"
+                        value={loginPassword || ""}
+                        onChange={(e) => setLoginPassword(e.target.value)}
+                      ></input>
+                    </Form.Field>
+                    <Button
+                      onClick={() =>
+                        authenticateUser(loginEmail, loginPassword, true)
+                      }
+                      className="auth-form-buttons"
+                      color="black"
+                    >
+                      Login
+                    </Button>
+                  </Form>
+                </Fragment>
+              ) : (
+                <Fragment>
+                  <Form>
+                    <Form.Field className="auth-form-fields">
+                      <label className="form-labels">Email</label>
+                      <input
+                        placeholder="Email Address"
+                        name="signUpEmail"
+                        type="email"
+                        value={signupEmail || ""}
+                        onChange={(e) => setSignupEmail(e.target.value)}
+                      ></input>
+                    </Form.Field>
+                    <Form.Field className="auth-form-fields">
+                      <label className="form-labels">Password</label>
+                      <input
+                        placeholder="Password"
+                        name="signUpPassword"
+                        type="password"
+                        value={signupPassword || ""}
+                        onChange={(e) => setSignupPassword(e.target.value)}
+                      ></input>
+                    </Form.Field>
+                    <Button
+                      className="auth-form-buttons"
+                      color="black"
+                      onClick={() =>
+                        authenticateUser(signupEmail, signupPassword, false)
+                      }
+                    >
+                      Sign up
+                    </Button>
+                  </Form>
+                </Fragment>
+              )}
             </Fragment>
-          ) : (
-            <Fragment>
-              <Form>
-                <Form.Field className="auth-form-fields">
-                  <label className="form-labels">Email</label>
-                  <input
-                    placeholder="Email Address"
-                    name="signUpEmail"
-                    type="email"
-                    value={signupEmail || ""}
-                    onChange={(e) => setSignupEmail(e.target.value)}
-                  ></input>
-                </Form.Field>
-                <Form.Field className="auth-form-fields">
-                  <label className="form-labels">Password</label>
-                  <input
-                    placeholder="Password"
-                    name="signUpPassword"
-                    type="password"
-                    value={signupPassword || ""}
-                    onChange={(e) => setSignupPassword(e.target.value)}
-                  ></input>
-                </Form.Field>
-                <Button
-                  className="auth-form-buttons"
-                  color="teal"
-                  onClick={() =>
-                    authenticateUser(signupEmail, signupPassword, false)
-                  }
-                >
-                  Sign up
-                </Button>
-              </Form>
-              <div className="google-login"></div>
-            </Fragment>
-          )}
-        </Fragment>
+          </Card.Content>
+        </Card>
+        </div>
       )}
-      {/* </Card.Content>
-      </Card> */}
     </div>
   );
 }
