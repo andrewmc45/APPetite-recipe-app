@@ -58,13 +58,13 @@
   margin-left: 10px;
 }
 
-button{
+button {
   padding: 15px 25px;
   border: unset;
   border-radius: 15px;
   color: #fff;
   z-index: 1;
-  background: #FFB400;
+  background: #ffb400;
   position: relative;
   font-weight: bolder !important;
   font-size: 17px;
@@ -73,9 +73,8 @@ button{
   margin-right: 5px !important;
   margin-bottom: 10px !important;
   margin-top: 10px !important;
+  cursor: pointer;
 }
-
-
 
 .privacy > h1,
 .security > h1,
