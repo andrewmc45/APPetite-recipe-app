@@ -1,0 +1,48 @@
+
+.privacy{
+  left:25%;
+  width:60%;
+  height: 100vh;
+  /* display: flex;
+  justify-content: start;
+  align-items: center; */
+  position: relative;
+  padding-top: 80px;
+  padding-left: 60px;
+}
+
+.privacy h1,h2,h3,h4,h5{
+  color:black;
+  text-align: left;
+}
+.privacy p {
+  font-size: 14px;
+  text-align: left;
+}
+
+.dataPersonalization{
+  display: block;
+  margin-top: 08%;
+  left:0px;
+  text-align: left;
+}
+
+.dataInput{
+  padding-bottom:25px;
+}
+
+.deleteAccount{
+  display: block;
+  margin-top: 08%;
+  left:0px;
+  text-align: left;
+}
+.deleteAccount #delBtn{
+  background-color: red;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  left: 0%;
+}
