@@ -1,4 +1,4 @@
-import React, { Component, Route } from "react";
+import React, { Component, Route, useRef } from "react";
 import './UserProfile.css'
 
 export class UserProfile extends Component {
@@ -19,6 +19,65 @@ export class UserProfile extends Component {
   preferencesHandler = (i) => {
 
   }
+
+  handleChange1(e) {
+    let isChecked = e.target.checked;
+    if(isChecked === true){
+      console.log("User Selected Vegan")
+    }else {
+      console.log("User unselected Vegan")
+    }
+  }
+  handleChange2(e) {
+    let isChecked = e.target.checked;
+    if(isChecked === true){
+      console.log("User Selected Dairy-Free")
+    } else {
+      console.log("User unselected Dairy-Free")
+    }
+  }
+  handleChange3(e) {
+    let isChecked = e.target.checked;
+    if(isChecked === true){
+      console.log("User Selected Gluten-Free")
+    }else {
+      console.log("User unselected Gluten-Free")
+    }
+  }
+  handleChange4(e) {
+    let isChecked = e.target.checked;
+    if(isChecked === true){
+      console.log("User Selected Wheat-Free")
+    }else {
+      console.log("User unselected Wheat-Free")
+    }
+  }
+  handleChange5(e) {
+    let isChecked = e.target.checked;
+    if(isChecked === true){
+      console.log("User Selected Vegetarian")
+    }else {
+      console.log("User unselected Vegetarian")
+    }
+  }
+  handleChange6(e) {
+    let isChecked = e.target.checked;
+    if(isChecked === true){
+      console.log("User Selected Paleo")
+    }else {
+      console.log("User unselected Paleo")
+    }
+  }
+  handleChange7(e) {
+    let isChecked = e.target.checked;
+    if(isChecked === true){
+      console.log("User Selected Alchol-Free")
+    }else {
+      console.log("User unselected Alchol-Free")
+    }
+  }
+
+  
 
 
   render() {
@@ -41,14 +100,14 @@ export class UserProfile extends Component {
 
             <h1 className="heading">Preferences:</h1>
             <div className="preferences">
-              <input type="checkbox" id="dietNeeds" value="Vegan" />Vegan
-              <input type="checkbox" id="dietNeeds" value="Dairy-Free" />Dairy-Free
-              <input type="checkbox" id="dietNeeds" value="Gluten-Free" />Gluten-Free
-              <input type="checkbox" id="dietNeeds" value="Wheat-Free" />Wheat-Free
-              <input type="checkbox" id="dietNeeds" value="Vegetarian" />Vegetarian
-              <input type="checkbox" id="dietNeeds" value="Paleo" />Paleo
-              <input type="checkbox" id="dietNeeds" value="Alcohol-Free" />Alcohol-Free
-
+              <input type="checkbox" id="dietNeeds" value="Vegan" onChange={this.handleChange1} />Vegan
+              <input type="checkbox" id="dietNeeds" value="Dairy-Free" onChange={this.handleChange2} />Dairy-Free
+              <input type="checkbox" id="dietNeeds" value="Gluten-Free" onChange={this.handleChange3} />Gluten-Free
+              <input type="checkbox" id="dietNeeds" value="Wheat-Free" onChange={this.handleChange4} />Wheat-Free
+              <input type="checkbox" id="dietNeeds" value="Vegetarian" onChange={this.handleChange5}  />Vegetarian
+              <input type="checkbox" id="dietNeeds" value="Paleo" onChange={this.handleChange6} />Paleo
+              <input type="checkbox" id="dietNeeds" value="Alcohol-Free" onChange={this.handleChange7}/>Alcohol-Free
+             
 
             </div>
 
