@@ -14,7 +14,7 @@
   width: 300px;
   border-radius: 10px;
   background-color: #ffb400;
-  margin-top: 6rem;
+  margin-top: 120px;
 }
 .heading {
   text-align: center;
@@ -56,15 +56,20 @@
 }
 .preferences {
   /* display: inline-block; */
-  margin: center;
+  /* display: inline-block; */
+  margin:-40px ;
   text-align: center;
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin: 1rem;
+}
+
+#dietNeeds{
+  display: inline-block;
+  text-align: center;
 }
 
 .birthday-container {
   margin: center;
-  margin-bottom: 2rem;
+  margin-bottom: 140px;
 }
