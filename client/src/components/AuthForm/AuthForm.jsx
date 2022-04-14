@@ -24,6 +24,7 @@ async function authenticateUser(email, password, isLogin) {
   }
 }
 
+//orignial name was renderLoggedIn swapped with authform to bypass authentication
 function renderLoggedIn() {
   return (
     <div>

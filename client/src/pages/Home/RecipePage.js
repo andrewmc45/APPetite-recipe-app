@@ -1,6 +1,7 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import style from "./RecipePage.css";
 import { useLocation, useParams } from "react-router-dom";
+
 
 const RecipePage = (props) => {
   let { id } = useParams();
@@ -10,7 +11,29 @@ const RecipePage = (props) => {
 
   let location = useLocation();
   let recipedata = location.state.content;
-  console.log(recipedata);
+  const recipeid = recipedata.uri.substring(51);
+  
+  const handleClick = async() => {
+    console.log(recipeid);
+ 
+    // When a post request is sent to the create url, we'll add a new record to the database.
+   const newRecipe = {name:id,
+                      img: recipedata.image };
+ 
+   await fetch("http://localhost:5000/record/add", {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(newRecipe),
+   })
+   .catch(error => {
+     window.alert(error);
+     return;
+   });
+ alert("Added"); 
+    };
+
 
   return (
     <>
@@ -38,6 +61,7 @@ const RecipePage = (props) => {
             {recipedata.url}
           </a>
         </div>
+        <button onClick={handleClick}>Add To Favorites</button>
       </div>
     </>
   );

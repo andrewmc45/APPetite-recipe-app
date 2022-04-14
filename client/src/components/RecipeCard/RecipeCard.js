@@ -12,9 +12,27 @@ const RecipeCard = ({ title, image, ingredients, full }) => {
   };
   const recipeid = full.uri.substring(51);
 
-  const handleClick = () => {
+  const handleClick = async() => {
     console.log(recipeid);
-  };
+ 
+    // When a post request is sent to the create url, we'll add a new record to the database.
+   const newRecipe = {name:title,
+                      img:image,   };
+ 
+   await fetch("http://localhost:5000/record/add", {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(newRecipe),
+   })
+   .catch(error => {
+     window.alert(error);
+     return;
+   });
+ alert("Added"); 
+    };
+
   return (
     <div className={style.recipe}>
       <h1>{title}</h1>
